@@ -1,0 +1,4 @@
+.idea
+*.iml
+# Project exclude paths
+/discord-rpc/target/
