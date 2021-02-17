@@ -58,6 +58,12 @@
 
   <dependencies>
     <dependency>
+      <artifactId>discord-rpc</artifactId>
+      <groupId>com.github.Vatuu</groupId>
+      <version>1.6.2</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.l33tlabs.twl</groupId>
       <artifactId>pngdecoder</artifactId>
       <version>1.0</version>
