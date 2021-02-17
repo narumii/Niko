@@ -17,7 +17,7 @@ public class DiscordRichPresenceManager implements ReadyCallback {
   public DiscordRichPresenceManager() {
     richPresence = new DiscordRichPresence
         .Builder("https://github.com/narumii/Niko")
-        .setBigImage("animated-niko", "NikoBase created by なるみ#5777")
+        .setBigImage("animated-niko", "Niko created by なるみ#5777")
         .setSmallImage("github", "https://github.com/narumii/Niko")
         .setDetails("Loading Niko...")
         .setStartTimestamps(System.currentTimeMillis())
