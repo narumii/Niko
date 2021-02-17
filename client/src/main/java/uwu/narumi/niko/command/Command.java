@@ -25,8 +25,7 @@ public abstract class Command {
   public abstract void execute(String... args) throws CommandException;
 
   public boolean is(String string) {
-    return string.equalsIgnoreCase(alias) || aliases.stream()
-        .anyMatch(stream -> stream.equalsIgnoreCase(alias));
+    return string.equalsIgnoreCase(alias) || aliases.stream().anyMatch(stream -> stream.equalsIgnoreCase(string));
   }
 
   public String getAlias() {
