@@ -10,6 +10,7 @@
 - Simple CommandAPI
 - Simple ExploitAPI
 - Shitty GuiInGameHook
+- Discord RPC
 
 ---
 
