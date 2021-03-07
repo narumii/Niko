@@ -15,4 +15,6 @@
 
 #### Preview
 
-![](https://i.imgur.com/kGQTEBp.png)
+![](https://i.imgur.com/ZlXz3yL.png)
+![](https://i.imgur.com/89hJYV7.png)
+![](https://i.imgur.com/gPkWI1l.png)
