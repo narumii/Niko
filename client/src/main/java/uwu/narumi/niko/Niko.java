@@ -7,9 +7,10 @@ import uwu.narumi.niko.command.CommandManager;
 import uwu.narumi.niko.command.impl.ExploitCommand;
 import uwu.narumi.niko.command.impl.HelpCommand;
 import uwu.narumi.niko.exploit.ExploitManager;
-import uwu.narumi.niko.exploit.impl.creative.HopperExploit;
+import uwu.narumi.niko.exploit.impl.creative.AnvilExploit;
 import uwu.narumi.niko.exploit.impl.flood.AttackExploit;
 import uwu.narumi.niko.exploit.impl.nbt.BookExploit;
+import uwu.narumi.niko.exploit.impl.other.ChunkLoad;
 import uwu.narumi.niko.exploit.impl.other.FaweExploit;
 import uwu.narumi.niko.exploit.impl.other.SpamExploit;
 import uwu.narumi.niko.helper.NetHelper;
@@ -26,7 +27,7 @@ public enum Niko {
   Niko() {
     discordRichPresence = new DiscordRichPresenceManager();
     commandManager = new CommandManager(new ExploitCommand(), new HelpCommand());
-    exploitManager = new ExploitManager(new HopperExploit(), new AttackExploit(), new BookExploit(), new SpamExploit(), new FaweExploit());
+    exploitManager = new ExploitManager(new AnvilExploit(), new AttackExploit(), new BookExploit(), new SpamExploit(), new FaweExploit(), new ChunkLoad());
 
     NetHelper.createSession("AraAraZapierdala", null);
 
