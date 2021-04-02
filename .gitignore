@@ -1,4 +1,16 @@
+# Idea memory leak :flushed:
 .idea
+
+# Yes
 *.iml
-# Project exclude paths
-/discord-rpc/target/
+*.jar
+target
+
+# Client work dir
+work/assets/skins
+work/crash-reports
+work/resourcepacks
+work/saves
+work/shaderpacks
+work/screenshots
+work/*.*
