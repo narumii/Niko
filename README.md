@@ -20,7 +20,10 @@
 - Working directory: `$ProjectFileDir$/work`
 
 > Clean `target` before running
-> Some thins can be fucked due to minecraft working dir (for example resourcepack button crashers the game xd)
+
+> Some things can be fucked due to minecraft working dir (for example resourcepack button crashes the game xd)
+
+
 ![](https://i.imgur.com/1ttvVCZ.png)
 
 --- 
@@ -33,6 +36,7 @@
 - Copy folder `NikoClient` to `.minecraft/versions`
 
 > JSON File: `versions/NikoClient/NikoClient.json`
+
 > Please add libraries to json file (don't create fat jar, we don't want jar that have 40mb size xd)
 
 ---
