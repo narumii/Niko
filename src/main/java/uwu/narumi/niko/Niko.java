@@ -6,6 +6,7 @@ import org.lwjgl.opengl.Display;
 import uwu.narumi.niko.command.CommandManager;
 import uwu.narumi.niko.command.impl.ExploitCommand;
 import uwu.narumi.niko.command.impl.HelpCommand;
+import uwu.narumi.niko.command.impl.OnlineCommand;
 import uwu.narumi.niko.exploit.ExploitManager;
 import uwu.narumi.niko.exploit.impl.creative.AnvilExploit;
 import uwu.narumi.niko.exploit.impl.flood.AttackExploit;
@@ -28,7 +29,8 @@ public enum Niko {
     discordRichPresence = new DiscordRichPresenceManager();
     commandManager = new CommandManager(
         new ExploitCommand(),
-        new HelpCommand()
+        new HelpCommand(),
+        new OnlineCommand()
     );
 
     exploitManager = new ExploitManager(
@@ -40,6 +42,7 @@ public enum Niko {
         new ChunkLoad()
     );
 
+    //If you want to use niko from launcher please remove this
     NetHelper.createSession("AraAraZapierdala", null);
     Runtime.getRuntime().addShutdownHook(new Thread(this::shutDown));
   }

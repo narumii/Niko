@@ -1,4 +1,4 @@
-> Java version: AdoptJDK 11 openJ9
+> Java version: AdoptJDK 8
 ---
 
 ### Niko is a small crash client base for retarded(german) people who steal other people's code.

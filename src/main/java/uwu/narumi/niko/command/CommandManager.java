@@ -3,6 +3,7 @@ package uwu.narumi.niko.command;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import net.minecraft.client.Minecraft;
 import uwu.narumi.niko.exception.CommandException;
 import uwu.narumi.niko.helper.ChatHelper;
 
@@ -17,19 +18,27 @@ public class CommandManager {
   }
 
   public boolean handleCommand(String message) {
-    if (message.isBlank() || message.isEmpty()) {
+    if (/*message.isBlank() ||*/ message.isEmpty()) {
       return false;
     }
 
     String[] args = message.substring(1).split(" ");
-    getCommand(args[0]).ifPresentOrElse(command -> {
+    try {
+      getCommand(args[0])
+          .orElseThrow(() -> new CommandException(String.format("Command \"%s\" not found. Use \".help\" to see command list.", args[0])))
+          .execute(Arrays.copyOfRange(args, 1, args.length));
+    } catch (CommandException e) {
+      ChatHelper.printMessage(e.getMessage());
+    }
+
+    /*getCommand(args[0]).ifPresentOrElse(command -> {
       try {
         command.execute(Arrays.copyOfRange(args, 1, args.length));
       } catch (CommandException e) {
         ChatHelper.printMessage(e.getMessage());
       }
     }, () -> ChatHelper.printMessage(
-        String.format("Command \"%s\" not found. Use \".help\" to see command list.", args[0])));
+        String.format("Command \"%s\" not found. Use \".help\" to see command list.", args[0])));*/
 
     return true;
   }

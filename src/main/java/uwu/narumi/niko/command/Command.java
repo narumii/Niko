@@ -2,11 +2,13 @@ package uwu.narumi.niko.command;
 
 import java.util.Arrays;
 import java.util.List;
+import net.minecraft.client.Minecraft;
 import org.apache.commons.lang3.Validate;
 import uwu.narumi.niko.exception.CommandException;
 
 public abstract class Command {
 
+  protected static final Minecraft mc = Minecraft.getMinecraft();
   private final String alias;
   private final String description;
   private final String usage;
