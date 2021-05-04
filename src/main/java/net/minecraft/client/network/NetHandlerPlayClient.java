@@ -1066,21 +1066,26 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
 
     public void handleRespawn(S07PacketRespawn packetIn)
     {
-        PacketThreadUtil.checkThreadAndEnqueue(packetIn, this, this.gameController);
+        try {
+            PacketThreadUtil.checkThreadAndEnqueue(packetIn, this, this.gameController);
 
-        if (packetIn.getDimensionID() != this.gameController.thePlayer.dimension)
-        {
-            this.doneLoadingTerrain = false;
-            Scoreboard scoreboard = this.clientWorldController.getScoreboard();
-            this.clientWorldController = new WorldClient(this, new WorldSettings(0L, packetIn.getGameType(), false, this.gameController.theWorld.getWorldInfo().isHardcoreModeEnabled(), packetIn.getWorldType()), packetIn.getDimensionID(), packetIn.getDifficulty(), this.gameController.mcProfiler);
-            this.clientWorldController.setWorldScoreboard(scoreboard);
-            this.gameController.loadWorld(this.clientWorldController);
-            this.gameController.thePlayer.dimension = packetIn.getDimensionID();
-            this.gameController.displayGuiScreen(new GuiDownloadTerrain(this));
-        }
+            if (packetIn.getDimensionID() != this.gameController.thePlayer.dimension) {
+                this.doneLoadingTerrain = false;
+                Scoreboard scoreboard = this.clientWorldController.getScoreboard();
+                this.clientWorldController = new WorldClient(this,
+                    new WorldSettings(0L, packetIn.getGameType(), false,
+                        this.gameController.theWorld.getWorldInfo().isHardcoreModeEnabled(),
+                        packetIn.getWorldType()), packetIn.getDimensionID(),
+                    packetIn.getDifficulty(), this.gameController.mcProfiler);
+                this.clientWorldController.setWorldScoreboard(scoreboard);
+                this.gameController.loadWorld(this.clientWorldController);
+                this.gameController.thePlayer.dimension = packetIn.getDimensionID();
+                this.gameController.displayGuiScreen(new GuiDownloadTerrain(this));
+            }
 
-        this.gameController.setDimensionAndSpawnPlayer(packetIn.getDimensionID());
-        this.gameController.playerController.setGameType(packetIn.getGameType());
+            this.gameController.setDimensionAndSpawnPlayer(packetIn.getDimensionID());
+            this.gameController.playerController.setGameType(packetIn.getGameType());
+        } catch (Exception e) { }
     }
 
     /**
@@ -1838,46 +1843,40 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
      */
     public void handleCustomPayload(S3FPacketCustomPayload packetIn)
     {
-        PacketThreadUtil.checkThreadAndEnqueue(packetIn, this, this.gameController);
+        try {
+            PacketThreadUtil.checkThreadAndEnqueue(packetIn, this, this.gameController);
 
-        if ("MC|TrList".equals(packetIn.getChannelName()))
-        {
-            PacketBuffer packetbuffer = packetIn.getBufferData();
+            if ("MC|TrList".equals(packetIn.getChannelName())) {
+                PacketBuffer packetbuffer = packetIn.getBufferData();
 
-            try
-            {
-                int i = packetbuffer.readInt();
-                GuiScreen guiscreen = this.gameController.currentScreen;
+                try {
+                    int i = packetbuffer.readInt();
+                    GuiScreen guiscreen = this.gameController.currentScreen;
 
-                if (guiscreen != null && guiscreen instanceof GuiMerchant && i == this.gameController.thePlayer.openContainer.windowId)
-                {
-                    IMerchant imerchant = ((GuiMerchant)guiscreen).getMerchant();
-                    MerchantRecipeList merchantrecipelist = MerchantRecipeList.readFromBuf(packetbuffer);
-                    imerchant.setRecipes(merchantrecipelist);
+                    if (guiscreen != null && guiscreen instanceof GuiMerchant
+                        && i == this.gameController.thePlayer.openContainer.windowId) {
+                        IMerchant imerchant = ((GuiMerchant) guiscreen).getMerchant();
+                        MerchantRecipeList merchantrecipelist = MerchantRecipeList
+                            .readFromBuf(packetbuffer);
+                        imerchant.setRecipes(merchantrecipelist);
+                    }
+                } catch (IOException ioexception) {
+                    logger.error("Couldn't load trade info", ioexception);
+                } finally {
+                    packetbuffer.release();
+                }
+            } else if ("MC|Brand".equals(packetIn.getChannelName())) {
+                this.gameController.thePlayer
+                    .setClientBrand(packetIn.getBufferData().readStringFromBuffer(32767));
+            } else if ("MC|BOpen".equals(packetIn.getChannelName())) {
+                ItemStack itemstack = this.gameController.thePlayer.getCurrentEquippedItem();
+
+                if (itemstack != null && itemstack.getItem() == Items.written_book) {
+                    this.gameController.displayGuiScreen(
+                        new GuiScreenBook(this.gameController.thePlayer, itemstack, false));
                 }
             }
-            catch (IOException ioexception)
-            {
-                logger.error("Couldn't load trade info", ioexception);
-            }
-            finally
-            {
-                packetbuffer.release();
-            }
-        }
-        else if ("MC|Brand".equals(packetIn.getChannelName()))
-        {
-            this.gameController.thePlayer.setClientBrand(packetIn.getBufferData().readStringFromBuffer(32767));
-        }
-        else if ("MC|BOpen".equals(packetIn.getChannelName()))
-        {
-            ItemStack itemstack = this.gameController.thePlayer.getCurrentEquippedItem();
-
-            if (itemstack != null && itemstack.getItem() == Items.written_book)
-            {
-                this.gameController.displayGuiScreen(new GuiScreenBook(this.gameController.thePlayer, itemstack, false));
-            }
-        }
+        }catch (Exception e) {}
     }
 
     /**
