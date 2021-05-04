@@ -16,8 +16,6 @@ import uwu.narumi.niko.helper.PlayerHelper;
 )
 public class OnlineCommand extends Command {
 
-  private static final Pattern validUserPattern = Pattern.compile("^[a-zA-Z0-9_]{3,16}$");
-
   @Override
   public void execute(String... args) throws CommandException {
     Type type = args.length > 0 ? Type.valueOf(args[0].toUpperCase()) : Type.PLAYER_DATA;
