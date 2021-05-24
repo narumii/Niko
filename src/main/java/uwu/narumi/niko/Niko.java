@@ -5,13 +5,14 @@ import net.arikia.dev.drpc.DiscordRPC;
 import org.lwjgl.opengl.Display;
 import uwu.narumi.niko.command.CommandManager;
 import uwu.narumi.niko.command.impl.ExploitCommand;
+import uwu.narumi.niko.command.impl.FakeGamemodeCommand;
 import uwu.narumi.niko.command.impl.HelpCommand;
 import uwu.narumi.niko.command.impl.OnlineCommand;
 import uwu.narumi.niko.exploit.ExploitManager;
 import uwu.narumi.niko.exploit.impl.creative.AnvilExploit;
 import uwu.narumi.niko.exploit.impl.flood.AttackExploit;
 import uwu.narumi.niko.exploit.impl.nbt.BookExploit;
-import uwu.narumi.niko.exploit.impl.other.ChunkLoad;
+import uwu.narumi.niko.exploit.impl.other.ChunkLoadExploit;
 import uwu.narumi.niko.exploit.impl.other.FaweExploit;
 import uwu.narumi.niko.exploit.impl.other.SpamExploit;
 import uwu.narumi.niko.helper.NetHelper;
@@ -30,7 +31,8 @@ public enum Niko {
     commandManager = new CommandManager(
         new ExploitCommand(),
         new HelpCommand(),
-        new OnlineCommand()
+        new OnlineCommand(),
+        new FakeGamemodeCommand()
     );
 
     exploitManager = new ExploitManager(
@@ -39,11 +41,11 @@ public enum Niko {
         new BookExploit(),
         new SpamExploit(),
         new FaweExploit(),
-        new ChunkLoad()
+        new ChunkLoadExploit()
     );
 
     //If you want to use niko from launcher please remove this
-    NetHelper.createSession("AraAraZapierdala", null);
+    NetHelper.createSession("FuckYooniks", null);
     Runtime.getRuntime().addShutdownHook(new Thread(this::shutDown));
   }
 

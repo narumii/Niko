@@ -1,7 +1,5 @@
 package uwu.narumi.niko.command.impl;
 
-import java.util.regex.Pattern;
-import net.minecraft.client.network.NetworkPlayerInfo;
 import uwu.narumi.niko.command.Command;
 import uwu.narumi.niko.command.CommandInfo;
 import uwu.narumi.niko.exception.CommandException;
@@ -34,6 +32,6 @@ public class OnlineCommand extends Command {
   }
 
   enum Type {
-    TAB_COMPLETE, PLAYER_DATA;
+    TAB_COMPLETE, PLAYER_DATA
   }
 }
