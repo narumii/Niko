@@ -1,3 +1,13 @@
+#### Skidders
+- AvarionCient (Szymeko, Noxerek)
+- Str0ng (str0ngsz)
+- SweetCLient (Idk who "creating" it)
+- And probably more
+
+> All of these clients are trash
+
+---
+
 > Java version: AdoptJDK 8
 ---
 
