@@ -1,6 +1,6 @@
 ### Skidders
 - AvarionCient (Szymeko, Noxerek)
-- Str0ng (str0ngsz)
+- Str0ng/StormClient (str0ngsz)
 - SweetClient (Idk who "creating" it)
 - And probably more
 
