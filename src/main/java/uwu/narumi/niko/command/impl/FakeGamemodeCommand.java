@@ -34,8 +34,9 @@ public class FakeGamemodeCommand extends Command {
 
     try {
       GameType gameType = getGameModeFromCommand(args[0]);
-      if (savedType == null)
+      if (savedType == null) {
         savedType = mc.playerController.getCurrentGameType();
+      }
 
       mc.playerController.setGameType(gameType);
       ChatHelper.printMessage("Your client gamemode was set to &d" + gameType.getName());

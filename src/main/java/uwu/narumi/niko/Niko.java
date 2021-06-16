@@ -12,6 +12,8 @@ import uwu.narumi.niko.exploit.ExploitManager;
 import uwu.narumi.niko.exploit.impl.creative.AnvilExploit;
 import uwu.narumi.niko.exploit.impl.flood.AttackExploit;
 import uwu.narumi.niko.exploit.impl.nbt.BookExploit;
+import uwu.narumi.niko.exploit.impl.nbt.ExploitFixerExploit;
+import uwu.narumi.niko.exploit.impl.nbt.OnePacketExploit;
 import uwu.narumi.niko.exploit.impl.other.ChunkLoadExploit;
 import uwu.narumi.niko.exploit.impl.other.FaweExploit;
 import uwu.narumi.niko.exploit.impl.other.SpamExploit;
@@ -41,7 +43,9 @@ public enum Niko {
         new BookExploit(),
         new SpamExploit(),
         new FaweExploit(),
-        new ChunkLoadExploit()
+        new ChunkLoadExploit(),
+        new ExploitFixerExploit(),
+        new OnePacketExploit()
     );
 
     //If you want to use niko from launcher please remove this

@@ -29,7 +29,7 @@ public class GuiInGameHook extends GuiIngame {
       int x = (int) mc.thePlayer.posX, y = (int) mc.thePlayer.posY, z = (int) mc.thePlayer.posZ;
       long usedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
       long lastPacketMS = TimeHelper.getCurrentTime() - Holder.getLastPacketMS();
-      if (lastPacketMS > 1000 && Holder.getTPS() > 0.00) //idk xd
+      if (lastPacketMS > 1000 && Holder.getTPS() > 0.00) //idk xd, imagine doesn't know how to gix -0.00
       {
         Holder.setTPS(Holder.getTPS() - 0.01);
       }
