@@ -51,6 +51,10 @@
 
 ---
 
+### Credits
+- MetaClient (mori0) `Json NBT(extra) from MetaClient, sorry but i don't give you other json nbt ¯\_(ツ)_/¯`
+---
+
 #### Preview
 
 ![](https://i.imgur.com/ZlXz3yL.png)
