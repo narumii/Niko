@@ -1,7 +1,7 @@
 ### Skidders
 - AvarionCient (Szymeko, Noxerek)
 - Str0ng/StormClient (str0ngsz)
-- SweetClient (Idk who "creating" it)
+- SweetClient (BlackCrack, AvarionTeam)
 - And probably more
 
 > All of these clients are trash
