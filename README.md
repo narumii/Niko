@@ -2,6 +2,7 @@
 - AvarionCient (Szymeko, Noxerek)
 - Str0ng/StormClient (str0ngsz)
 - SweetClient (BlackCrack, AvarionTeam)
+- Ayakashi (Noxerek)
 - And probably more
 
 > All of these clients are trash
