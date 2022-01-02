@@ -3,7 +3,8 @@
 - AvarionCient (Szymeko, Noxerek)
 - Str0ng/StormClient (str0ngsz)
 - SweetClient (BlackCrack, AvarionTeam)
-- Ayakashi (Noxerek)
+- Ayakashi (Noxerek, FixMem)
+- Heaven (Noxerek)
 - And probably more
 
 > All of these clients are trash
@@ -23,6 +24,7 @@
 - Simple ExploitAPI
 - Shitty GuiInGameHook
 - Discord RPC
+- Updated Log4J
 
 ---
 

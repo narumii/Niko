@@ -29,6 +29,8 @@ public enum Niko {
   private final DiscordRichPresenceManager discordRichPresence;
 
   Niko() {
+    System.setProperty("com.sun.jndi.ldap.object.trustURLCodebase", "false");
+
     discordRichPresence = new DiscordRichPresenceManager();
     commandManager = new CommandManager(
         new ExploitCommand(),
